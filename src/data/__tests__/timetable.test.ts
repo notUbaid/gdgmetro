@@ -1,0 +1,150 @@
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+
+// Mock the generated JSON data BEFORE importing the timetable module
+vi.mock('../timetableFromExcel.generated.json', () => {
+  return {
+    default: {
+      trainSchedules: [
+        // Train 1: Red Line Forward
+        {
+          id: 'TEST-RED-1',
+          line: 'red',
+          direction: 'forward',
+          dayType: 'Mon-Fri',
+          startTime: '08:00',
+          stations: ['apmc', 'jivraj_park', 'rajiv_nagar', 'old_high_court', 'usmanpura'],
+          stationTimes: [0, 5, 10, 15, 20], // Arrives at old_high_court at 08:15
+        },
+        // Train 2: Red Line Forward (1 minute behind Train 1 - an anomaly!)
+        {
+          id: 'TEST-RED-2',
+          line: 'red',
+          direction: 'forward',
+          dayType: 'Mon-Fri',
+          startTime: '08:01',
+          stations: ['apmc', 'jivraj_park', 'rajiv_nagar', 'old_high_court', 'usmanpura'],
+          stationTimes: [0, 5, 10, 15, 20], // Arrives at old_high_court at 08:16
+        },
+        // Train 3: Green Line Forward (Also arrives at 08:15, but different line!)
+        {
+          id: 'TEST-GREEN-1',
+          line: 'green',
+          direction: 'forward',
+          dayType: 'Mon-Fri',
+          startTime: '07:45',
+          stations: ['koteshwar_road', 'motera_stadium', 'sabarmati', 'old_high_court', 'usmanpura'],
+          stationTimes: [0, 10, 20, 30, 40], // Arrives at old_high_court at 08:15
+        },
+        // Train 4: Afternoon Train (3 hours after 08:10, simulating gap like PDPU midday)
+        {
+          id: 'TEST-AFTERNOON-1',
+          line: 'purple',
+          direction: 'forward',
+          dayType: 'Mon-Fri',
+          startTime: '16:00',
+          stations: ['gnlu', 'pdpu', 'gift_city'],
+          stationTimes: [0, 6, 9], // Arrives at pdpu at 16:06
+        },
+      ],
+    },
+  };
+});
+
+// Import the module under test after mocking
+import { getUpcomingTrains, getCurrentTrainPositions } from '../timetable';
+
+describe('Timetable Deduplication Logic', () => {
+  beforeEach(() => {
+    // Set system time to 08:10 AM on a Wednesday (Mon-Fri)
+    vi.useFakeTimers();
+    const mockDate = new Date('2024-01-03T08:10:00+05:30'); // Jan 3, 2024 is a Wednesday
+    vi.setSystemTime(mockDate);
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it('getUpcomingTrains filters out trains less than 3 minutes apart on the same line and direction', () => {
+    const upcoming = getUpcomingTrains('old_high_court', 10);
+    
+    // We expect the 08:15 Red line train, but NOT the 08:16 Red line train!
+    const redTrains = upcoming.filter(t => t.line === 'red' && t.direction === 'towards Usmanpura');
+    expect(redTrains).toHaveLength(1);
+    expect(redTrains[0].arrivalTime).toBe('08:15');
+    
+    // We expect the 08:15 Green line train to still be there, because it's a different line!
+    const greenTrains = upcoming.filter(t => t.line === 'green');
+    expect(greenTrains).toHaveLength(1);
+    expect(greenTrains[0].arrivalTime).toBe('08:15');
+  });
+
+  it('getUpcomingTrains returns upcoming trains later in the day when none exist within 120 minutes (e.g. midday gap)', () => {
+    // Current time: 08:10 AM, PDPU next train is at 16:06 (476 minutes away)
+    const upcoming = getUpcomingTrains('pdpu', 3);
+    expect(upcoming).toHaveLength(1);
+    expect(upcoming[0].arrivalTime).toBe('16:06');
+    expect(upcoming[0].line).toBe('purple');
+    expect(upcoming[0].minutesAway).toBe(476);
+  });
+
+  it('getCurrentTrainPositions drops visually colliding trains', () => {
+    // Let's set the time to 08:07. 
+    // Train 1 left APMC at 08:00. At 08:07 it is between jivraj_park (08:05) and rajiv_nagar (08:10).
+    // Train 2 left APMC at 08:01. At 08:07 it is between jivraj_park (08:06) and rajiv_nagar (08:11).
+    // They are physically on the same segment!
+    vi.setSystemTime(new Date('2024-01-03T08:07:00+05:30'));
+
+    const positions = getCurrentTrainPositions();
+    
+    // Filter to trains on the jivraj_park -> rajiv_nagar segment
+    const segmentTrains = positions.filter(
+      p => p.fromStationId === 'jivraj_park' && p.toStationId === 'rajiv_nagar'
+    );
+    
+    // Without deduplication, both would be here. With distance deduplication (< 0.15 diff), one is dropped!
+    expect(segmentTrains).toHaveLength(1);
+    expect(segmentTrains[0].id).toBe('TEST-RED-1');
+  });
+});
+
+import { getDirectionStr, getCurrentHeadway } from '../timetable';
+import { stations } from '../metroData';
+
+describe('Timetable Utility Functions', () => {
+  it('getDirectionStr returns correct string for known destinations', () => {
+    expect(getDirectionStr('apmc')).toBe('Southbound');
+    expect(getDirectionStr('koteshwar_road')).toBe('Northbound');
+    expect(getDirectionStr('vastral_gam')).toBe('Eastbound');
+    expect(getDirectionStr('thaltej_gam')).toBe('Westbound');
+    expect(getDirectionStr('gnlu')).toBe('Southbound'); // Added to Southbound
+    expect(getDirectionStr('gift_city')).toBe('Northbound');
+    expect(getDirectionStr('pdpu')).toBe('Northbound');
+  });
+
+  it('getCurrentHeadway calculates peak and off-peak headways correctly for Blue line', () => {
+    // Wednesday 09:00 AM (Peak)
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2024-01-03T09:00:00+05:30'));
+    expect(getCurrentHeadway('blue').minutes).toBe(7);
+
+    // Wednesday 13:00 PM (Off-Peak)
+    vi.setSystemTime(new Date('2024-01-03T13:00:00+05:30'));
+    expect(getCurrentHeadway('blue').minutes).toBe(10);
+
+    // Sunday 13:00 PM (Always 12 mins)
+    vi.setSystemTime(new Date('2024-01-07T13:00:00+05:30')); // Jan 7 is Sunday
+    expect(getCurrentHeadway('blue').minutes).toBe(12);
+
+    vi.useRealTimers();
+  });
+
+  it('verifies PDEU station has appropriate aliases including PDPU for search', () => {
+    const pdpuStation = stations['pdpu'];
+    expect(pdpuStation).toBeDefined();
+    expect(pdpuStation.name).toBe('PDEU');
+    expect(pdpuStation.aliases).toContain('PDPU');
+    expect(pdpuStation.aliases).toContain('Pandit Deendayal Energy University');
+  });
+});
+

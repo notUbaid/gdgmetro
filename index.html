@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    
+    <!-- AI/LLM Discoverability -->
+    <link rel="help" type="text/plain" href="/llms.txt" />
+    <link rel="help" type="text/plain" href="/llms-full.txt" />
+    
+    <!-- Primary Meta Tags (Keyword-Optimized) -->
+    <title>Ek Safar (એક સફર) — One City, One Journey | Multimodal Transit Platform</title>
+    <meta name="title" content="Ek Safar (એક સફર) — One City, One Journey | Multimodal Transit Platform" />
+    <meta name="description" content="Ek Safar (એક સફર) unites Gujarat Metro (GMRC), Janmarg BRTS Busways, and AMTS Municipal City Feeder Buses into a seamless single multimodal transit platform with unified ticketing (15% rebate), Hare-Niemeyer exact-paise fare splitting, and 100% offline vernacular AI journey planning." />
+    <meta name="keywords" content="Ek Safar, એક સફર, Ahmedabad Metro, Gandhinagar Metro, Janmarg BRTS, AMTS City Bus, multimodal transit, DevFest Hackathon PS-08, GMRC, transit fare rebate, single QR ticket, Gujarat multimodal journey planner" />
+    <meta name="author" content="Ek Safar" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://eksafar.transit/" />
+    
+    <!-- Language & Regional Targeting -->
+    <link rel="alternate" hreflang="en-IN" href="https://eksafar.transit/" />
+    <link rel="alternate" hreflang="x-default" href="https://eksafar.transit/" />
+    <meta http-equiv="content-language" content="en-IN" />
+    
+    <!-- Geo Meta Tags (Local SEO) -->
+    <meta name="geo.region" content="IN-GJ" />
+    <meta name="geo.placename" content="Ahmedabad, Gujarat, India" />
+    <meta name="geo.position" content="23.0225;72.5714" />
+    <meta name="ICBM" content="23.0225, 72.5714" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#0066CC" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Ek Safar" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Ek Safar — One City, One Journey" />
+    <meta name="msapplication-TileColor" content="#0066CC" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
+    <link rel="apple-touch-icon" href="/pwa-192x192.png" />
+    <link rel="mask-icon" href="/pwa-512x512.png" color="#0066CC" />
+    
+    <!-- Open Graph / Facebook (Absolute URLs) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://eksafar.transit/" />
+    <meta property="og:title" content="Ek Safar (એક સફર) — One City, One Journey | Multimodal Transit Platform" />
+    <meta property="og:description" content="Plan seamless multimodal journeys across Ahmedabad and Gandhinagar uniting Gujarat Metro Rail (GMRC), Janmarg BRTS dedicated busways, and AMTS municipal feeders with single QR ticketing and 15% integrated pass rebate." />
+    <meta property="og:image" content="https://eksafar.transit/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ek Safar Multimodal Transit Network Map" />
+    <meta property="og:site_name" content="Ek Safar — One City, One Journey" />
+    <meta property="og:locale" content="en_IN" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://eksafar.transit/" />
+    <meta name="twitter:title" content="Ek Safar (એક સફર) — One City, One Journey | Multimodal Transit Platform" />
+    <meta name="twitter:description" content="Plan seamless multimodal journeys across Ahmedabad and Gandhinagar uniting Gujarat Metro Rail, Janmarg BRTS & AMTS feeders with single QR ticketing and 15% rebate." />
+    <meta name="twitter:image" content="https://eksafar.transit/og-image.png" />
+    <meta name="twitter:image:alt" content="Ek Safar Multimodal Route Map" />
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Non-blocking font load: app uses weights 400/500/600/700/900 (font-black) -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" /></noscript>
+    <link rel="dns-prefetch" href="https://tile.openstreetmap.org" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    
+    <!-- JSON-LD Structured Data: WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Ek Safar Multimodal Transit",
+      "alternateName": ["Ek Safar", "એક સફર", "One City One Journey"],
+      "description": "Plan seamless multimodal journeys across Ahmedabad and Gandhinagar uniting Gujarat Metro Rail (GMRC), Janmarg BRTS busways, and AMTS city feeders with single QR ticketing, 15% integrated rebate, and vernacular NLP.",
+      "url": "https://eksafar.transit",
+      "applicationCategory": "TravelApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Ek Safar Multimodal Transit Platform",
+        "url": "https://eksafar.transit"
+      },
+      "inLanguage": ["en", "gu", "hi"],
+      "isAccessibleForFree": true,
+      "keywords": "Ek Safar, Ahmedabad Metro, Gandhinagar Metro, Janmarg BRTS, AMTS bus, multimodal journey planner, unified ticketing",
+      "screenshot": "https://eksafar.transit/og-image.png",
+      "featureList": [
+        "Pareto multimodal trip routing (Metro + BRTS + AMTS)",
+        "Unified single QR ticket with 15% transfer rebate",
+        "Offline vernacular Gujlish NLP query assistant",
+        "Hare-Niemeyer multi-operator revenue clearinghouse",
+        "Transfer desert geospatial equity analytics",
+        "Interactive multimodal transit network map"
+      ],
+      "areaServed": {
+        "@type": "City",
+        "name": "Ahmedabad",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "Gujarat",
+          "containedInPlace": {
+            "@type": "Country",
+            "name": "India"
+          }
+        }
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: MobileApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "Ek Safar Multimodal App",
+      "alternateName": ["Ek Safar", "એક સફર", "One City, One Journey"],
+      "operatingSystem": "Android, iOS, Web",
+      "applicationCategory": "TravelApplication",
+      "description": "Plan multimodal journeys across Gujarat Metro (GMRC), Janmarg BRTS dedicated busways, and AMTS feeder buses with unified single ticketing and 15% discount.",
+      "url": "https://eksafar.transit",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "screenshot": "https://eksafar.transit/og-image.png",
+      "inLanguage": ["en", "gu", "hi"],
+      "author": {
+        "@type": "Organization",
+        "name": "Ek Safar Multimodal Mobility Team",
+        "url": "https://eksafar.transit"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Ahmedabad",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "Gujarat"
+        }
+      }
+    }
+    </script>
+    
+    <!-- JSON-LD: TransitSystem -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TransitSystem",
+      "name": "Ek Safar Unified Multimodal Transit Network",
+      "alternateName": ["Gujarat Metro Rail (GMRC)", "Janmarg BRTS", "AMTS City Feeder Buses"],
+      "url": "https://eksafar.transit",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Ahmedabad"
+        },
+        {
+          "@type": "City",
+          "name": "Gandhinagar"
+        }
+      ],
+      "provider": {
+        "@type": "Organization",
+        "name": "Gujarat Metro Rail Corporation (GMRC)",
+        "url": "https://eksafar.transit"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage (Exhaustive Grounding for Google AI Overviews, Perplexity & Commuter Q&A) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Ahmedabad Metro timing today?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ahmedabad Metro operates daily from 06:20 AM to 10:00 PM on both Blue Line (East-West) and Red Line (North-South). The Green Line (Gandhinagar extension) operates from 07:33 AM to 08:10 PM, and the Purple Line (GIFT City branch) operates morning (07:36 AM–10:18 AM) and evening (04:06 PM–07:15 PM) shifts. Headways range from 5 to 7 minutes during peak rush hours, 10 to 15 minutes off-peak, and 12 minutes on Sundays. Check live train countdown at eksafar.transit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many stations and lines does Ahmedabad Metro have?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ahmedabad Metro has 53 operational stations across 4 distinct lines: 1) Blue Line (Thaltej Gam to Vastral Gam, 18 stations, 21.16 km), 2) Red Line (APMC to Koteshwar Road, 14 stations, 18.87 km), 3) Green Line (Koteshwar Road to Mahatma Mandir in Gandhinagar, 19 stations, 28.2 km), and 4) Purple Line (GNLU to GIFT City, 3 stations: GNLU, PDEU, GIFT City). Key interchange stations are Old High Court, Koteshwar Road, and GNLU."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the official fare chart of Ahmedabad Metro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fares are governed by 8 official GMRC distance slabs: Slab 1 (0–2.5 km) is ₹5; Slab 2 (2.5–7.5 km) is ₹10; Slab 3 (7.5–12.5 km) is ₹15; Slab 4 (12.5–17.5 km) is ₹20; Slab 5 (17.5–22.5 km) is ₹25; Slab 6 (22.5–27.5 km) is ₹30; Slab 7 (27.5–32.5 km) is ₹35; and Slab 8 (32.5+ km) is ₹40. RuPay NCMC Metro Smart Card holders receive a 10% discount on every journey. View exact fare matrices between all 53 stations at eksafar.transit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How to reach GIFT City by metro from Ahmedabad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To reach GIFT City from Ahmedabad: Take the Red Line north from APMC or Old High Court towards Gandhinagar. Cross Koteshwar Road to GNLU interchange station. At GNLU, transfer to the dedicated Purple Line shuttle train which runs directly to GIFT City via PDEU station in just 8 minutes. Total fare from Kalupur or Old High Court is ₹30 (₹27 with Metro Smart Card). Commuters should note that Purple Line trains operate in morning and evening shifts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Ahmedabad Metro go directly from Gandhinagar to GIFT City?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No direct non-stop train runs between Gandhinagar (Mahatma Mandir / Sectors) and GIFT City. Commuters from Gandhinagar must take the southbound Green Line train to GNLU interchange station, deboard, and board the Purple Line branch train towards GIFT City. Transfer takes under 3 minutes at the same station."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the next metro from Kalupur Railway Station to Motera Stadium (Narendra Modi Stadium)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To travel from Kalupur Central Railway Station to Motera Stadium (Narendra Modi Stadium): Board the westbound Blue Line (underground) at Kalupur towards Thaltej Gam. Travel 3 stations (~6 minutes) to Old High Court interchange. Transfer to the northbound Red Line platform towards Motera Stadium. Travel 7 stations to Motera Stadium. Total journey time is ~26 minutes across 10 stations. Official fare is ₹20 (₹18 with Metro Smart Card). First train departs Kalupur at 06:41 AM, last train at 22:25 PM. Plan your trip at eksafar.transit/?from=kalupur&to=motera_stadium."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the metro timings from Kalupur Railway Station to Thaltej?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Direct Blue Line trains run continuously between Kalupur Railway Station and Thaltej / Thaltej Gam without any interchange. Journey takes ~18 to 22 minutes across 9–10 stations. Fare is ₹15 (₹13.50 with Smart Card). First metro leaves Kalupur at 06:41 AM and the last metro departs at 22:25 PM with trains arriving every 7–10 minutes during peak hours. Live schedule available at eksafar.transit/?from=kalupur&to=thaltej."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the metro timings for cricket matches at Narendra Modi Stadium (Motera)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "During IPL, international cricket matches, and major events at Narendra Modi Stadium, GMRC operates special late-night metro services. Last trains from Motera Stadium station are extended past midnight (typically until 00:30 AM or until the stadium clears), connecting passengers across both Red Line and Blue Line via Old High Court. GMRC often introduces flat-fare paper return tokens to prevent queueing at entry gates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the metro timings, fare, and route from GNLU to Thaltej?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To travel from GNLU to Thaltej: Board the Green Line southbound at GNLU towards APMC. Travel 15 stations to Old High Court interchange. Transfer to the westbound Blue Line towards Thaltej Gam and alight at Thaltej. Total travel time is approximately 59 minutes across 23 stations (23.6 km). Official GMRC fare is ₹30 (₹27 with Smart Card). First train departs GNLU at 07:33 AM and the last train departs at ~20:30 PM with trains every 10–15 minutes. Check live status at eksafar.transit/?from=gnlu&to=thaltej."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the metro timings, fare, and route from Thaltej to GNLU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To travel from Thaltej or Thaltej Gam to GNLU: Board the Blue Line eastbound towards Vastral Gam, travel 8–9 stations to Old High Court interchange station, and transfer to the northbound Red/Green Line corridor towards Gandhinagar / Mahatma Mandir. Alight at GNLU station. Total travel time is ~59 minutes (23 stations, 23.6 km). Official GMRC fare is ₹30 (₹27 with Smart Card). First train leaves Thaltej at 06:30 AM, last train departs at ~21:15 PM. Check live departures at eksafar.transit/?from=thaltej&to=gnlu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the first and last metro timing at Kalupur Railway Station?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At Kalupur Underground Metro Station: First eastbound metro towards Vastral Gam departs at 06:41 AM. First westbound metro towards Old High Court and Thaltej Gam departs at 06:41 AM. Last trains depart at 22:25 PM in both directions on weekdays and Saturdays. On Sundays, services commence at ~07:00 AM with a 12-minute headway."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the metro timings and route from Vastral Gam to Thaltej Gam?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The entire East-West corridor between Vastral Gam and Thaltej Gam is served directly by the Blue Line without any transfers. The trip covers 18 stations (21.16 km) and takes approximately 45 minutes. Fare is ₹25 (₹22.50 with Smart Card). First train departs Vastral Gam at 06:20 AM; first train departs Thaltej Gam at 06:20 AM. Last train departs terminals at 22:00 PM."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How to travel from APMC to Mahatma Mandir Gandhinagar by metro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Commuters can board the North-South corridor train directly at APMC heading northbound through Paldi, Gandhigram, Old High Court, Sabarmati, Motera Stadium, Koteshwar Road, and into Gandhinagar to Mahatma Mandir. The journey spans 31 stations, takes ~75 minutes, and costs ₹35 (₹31.50 with Smart Card). Through-trains operate during scheduled morning and evening hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which stations on Ahmedabad Metro are underground?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ahmedabad Metro has 4 underground stations, all situated on the Blue Line: Shahpur, Gheekanta, Kalupur (Ahmedabad Central Railway Station), and Kankaria East (Kankaria Lake). These stations feature subterranean platforms equipped with full-height Platform Screen Doors (PSDs), escalators, and multiple entry/exit concourses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the metro timings for minor stations like Nirant Cross Roads, Apparel Park, Rabari Colony, and Amraiwadi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Minor residential and industrial stations on the Blue Line (Nirant Cross Roads, Vastral, Rabari Colony, Amraiwadi, Apparel Park) receive identical train service to major stations. Every train running on the Blue Line halts at each of these stations for 30 seconds. First westbound trains begin between 06:23 AM and 06:35 AM; last trains depart between 22:05 PM and 22:15 PM. Full timetable data is available on Ek Safar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the metro timings for Gandhinagar stations like Infocity, Sector 1, Sector 10A, Sachivalaya, and Akshardham?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Gandhinagar extension (Green Line) serves Infocity, Sector-1, Sector-10A, Sachivalaya (Government Secretariat), Akshardham Temple, Juna Sachivalaya, Sector 16, Sector 24, and Mahatma Mandir. Services operate from ~07:33 AM to 08:10 PM with trains running every 15 to 20 minutes. Commuters can reach Infocity from Old High Court in ~55 minutes for ₹30."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the metro timings for Randesan, Raysan, and Dholakuva Circle?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Randesan, Raysan, and Dholakuva Circle are elevated stations on the Green Line connecting Ahmedabad to Gandhinagar. Trains run northbound to Gandhinagar and southbound to APMC from 07:30 AM to 08:15 PM every 15–20 minutes. Fare to Ahmedabad city center (Old High Court) is ₹25."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the Old High Court metro interchange work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Old High Court is a multi-level interchange. The upper elevated level houses Blue Line platforms (Platform 1 for Vastral Gam eastbound, Platform 2 for Thaltej Gam westbound). The lower elevated level houses Red/Green Line platforms (Platform 3 for APMC southbound, Platform 4 for Motera Stadium/Gandhinagar northbound). Commuters change lines via internal escalators and stairs in 2 to 3 minutes without passing through exit gates or buying another ticket."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the Koteshwar Road and GNLU metro interchange work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Koteshwar Road acts as the transfer junction between Ahmedabad's Red Line and Gandhinagar's Green Line, though many services run continuously through without deboarding. GNLU is the dedicated junction for the Purple Line branch to GIFT City. Passengers alight at GNLU and walk across to the Purple Line shuttle platform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Ahmedabad Metro run on Sundays and public holidays?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Ahmedabad Metro operates 365 days a year, including Sundays, Diwali, Holi, Uttarayan, and national holidays. On Sundays, trains run from 06:20 AM to 10:00 PM with a regular 12-minute headway across the entire network."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much discount does the Ahmedabad Metro Smart Card (NCMC) provide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Ahmedabad Metro Smart Card (RuPay National Common Mobility Card / NCMC) provides a flat 10% discount on standard token fares. Cards can be purchased and topped up at any station ticket counter. A minimum balance of ₹50 is required to tap in at station gates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How to buy tickets and QR tokens for Ahmedabad Metro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Commuters can buy single-journey Paper QR tickets at customer service counters and Automatic Ticket Vending Machines (TVMs) at all stations using cash, UPI, or debit cards. Passengers can also purchase WhatsApp QR tickets or use their RuPay NCMC contactless cards directly at the AFC gates."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I carry luggage on Ahmedabad Metro and what are the size limits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, passengers can carry up to 25 kg of personal luggage free of charge, with maximum dimensions of 80 cm (length) x 50 cm (width) x 30 cm (height). All baggage must pass through the X-ray scanner at the station security entrance. Hazardous, flammable, or explosive items are strictly prohibited."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are bicycles allowed inside Ahmedabad Metro trains?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Foldable bicycles are permitted inside Ahmedabad Metro coaches during non-peak hours, provided they are folded before passing through the security checkpoint and do not obstruct passenger movement or emergency doors."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are drinking water and washroom facilities available at metro stations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all 53 Ahmedabad Metro stations feature free, purified drinking water dispensers and clean, accessible public washrooms on the concourse level for both gents, ladies, and differently-abled passengers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Ahmedabad Metro Lost and Found contact number?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Passengers who lose personal belongings can contact the GMRC Lost & Found desk at +91 79 22960123 or approach the Station Controller office at their arrival or departure station. Items found inside trains are logged and stored securely at central terminal offices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which metro station is closest to Sabarmati High Speed Bullet Train Station?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sabarmati Metro Station on the Red Line directly integrates with the Sabarmati Multimodal Transport Hub, which connects Western Railway, the Ahmedabad-Mumbai High-Speed Bullet Train terminal, and city BRTS routes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I download the Ek Safar Android app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can install the Ek Safar app directly from the Google Play Store (Package: eksafar.transit). It offers 100% offline timetable lookup, official fare calculations, live train tracking animations, and GPS nearest station discovery across all 53 stations."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ek Safar Multimodal Transit",
+          "item": "https://eksafar.transit/"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- JSON-LD: ItemList of Metro Stations -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Ahmedabad Metro Stations",
+      "description": "Complete list of all Ahmedabad Metro stations across Blue, Red, Green, and Purple lines",
+      "numberOfItems": 53,
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Thaltej Gam", "description": "Blue Line terminal station"},
+        {"@type": "ListItem", "position": 2, "name": "Thaltej", "description": "Blue Line station"},
+        {"@type": "ListItem", "position": 3, "name": "Doordarshan Kendra", "description": "Blue Line station"},
+        {"@type": "ListItem", "position": 4, "name": "Gurukul Road", "description": "Blue Line station"},
+        {"@type": "ListItem", "position": 5, "name": "Gujarat University", "description": "Blue Line station"},
+        {"@type": "ListItem", "position": 6, "name": "Commerce Six Road", "description": "Blue Line station"},
+        {"@type": "ListItem", "position": 7, "name": "S P Stadium", "description": "Blue Line station"},
+        {"@type": "ListItem", "position": 8, "name": "Old High Court", "description": "Interchange station - Blue Line and Red Line"},
+        {"@type": "ListItem", "position": 9, "name": "Shahpur", "description": "Blue Line underground station"},
+        {"@type": "ListItem", "position": 10, "name": "Gheekanta", "description": "Blue Line underground station"},
+        {"@type": "ListItem", "position": 11, "name": "Kalupur", "description": "Blue Line underground station near Kalupur Railway Station"},
+        {"@type": "ListItem", "position": 12, "name": "Kankaria East", "description": "Blue Line underground station near Kankaria Lake"},
+        {"@type": "ListItem", "position": 13, "name": "Apparel Park", "description": "Blue Line station"},
+        {"@type": "ListItem", "position": 14, "name": "Amraiwadi", "description": "Blue Line station"},
+        {"@type": "ListItem", "position": 15, "name": "Rabari Colony", "description": "Blue Line station"},
+        {"@type": "ListItem", "position": 16, "name": "Vastral", "description": "Blue Line station"},
+        {"@type": "ListItem", "position": 17, "name": "Nirant Cross Roads", "description": "Blue Line station"},
+        {"@type": "ListItem", "position": 18, "name": "Vastral Gam", "description": "Blue Line terminal station"},
+        {"@type": "ListItem", "position": 19, "name": "APMC", "description": "Red Line terminal station"},
+        {"@type": "ListItem", "position": 20, "name": "Jivraj Park", "description": "Red Line station"},
+        {"@type": "ListItem", "position": 21, "name": "Rajiv Nagar", "description": "Red Line station"},
+        {"@type": "ListItem", "position": 22, "name": "Shreyas", "description": "Red Line station"},
+        {"@type": "ListItem", "position": 23, "name": "Paldi", "description": "Red Line station"},
+        {"@type": "ListItem", "position": 24, "name": "Gandhigram", "description": "Red Line station"},
+        {"@type": "ListItem", "position": 25, "name": "Usmanpura", "description": "Red Line station"},
+        {"@type": "ListItem", "position": 26, "name": "Vijay Nagar", "description": "Red Line station"},
+        {"@type": "ListItem", "position": 27, "name": "Vadaj", "description": "Red Line station"},
+        {"@type": "ListItem", "position": 28, "name": "Ranip", "description": "Red Line station"},
+        {"@type": "ListItem", "position": 29, "name": "AEC", "description": "Red Line station"},
+        {"@type": "ListItem", "position": 30, "name": "Sabarmati", "description": "Red Line station"},
+        {"@type": "ListItem", "position": 31, "name": "Motera Stadium", "description": "Red Line station near Narendra Modi Stadium"},
+        {"@type": "ListItem", "position": 32, "name": "Koteshwar Road", "description": "Interchange station - Red Line and Green Line"},
+        {"@type": "ListItem", "position": 33, "name": "Vishwakarma College", "description": "Green Line station"},
+        {"@type": "ListItem", "position": 34, "name": "Tapovan Circle", "description": "Green Line station"},
+        {"@type": "ListItem", "position": 35, "name": "Narmada Canal", "description": "Green Line station"},
+        {"@type": "ListItem", "position": 36, "name": "Koba Circle", "description": "Green Line station"},
+        {"@type": "ListItem", "position": 37, "name": "Juna Koba", "description": "Green Line station"},
+        {"@type": "ListItem", "position": 38, "name": "Koba Gam", "description": "Green Line station"},
+        {"@type": "ListItem", "position": 39, "name": "GNLU", "description": "Interchange station - Green Line and Purple Line"},
+        {"@type": "ListItem", "position": 40, "name": "Raysan", "description": "Green Line station"},
+        {"@type": "ListItem", "position": 41, "name": "Randesan", "description": "Green Line station"},
+        {"@type": "ListItem", "position": 42, "name": "Dholakuva Circle", "description": "Green Line station"},
+        {"@type": "ListItem", "position": 43, "name": "Infocity", "description": "Green Line station"},
+        {"@type": "ListItem", "position": 44, "name": "Sector-1", "description": "Green Line station in Gandhinagar"},
+        {"@type": "ListItem", "position": 45, "name": "Sector-10A", "description": "Green Line station in Gandhinagar"},
+        {"@type": "ListItem", "position": 46, "name": "Sachivalaya", "description": "Green Line station in Gandhinagar"},
+        {"@type": "ListItem", "position": 47, "name": "Akshardham", "description": "Green Line station near Akshardham Temple"},
+        {"@type": "ListItem", "position": 48, "name": "Juna Sachivalaya", "description": "Green Line station"},
+        {"@type": "ListItem", "position": 49, "name": "Sector 16", "description": "Green Line station"},
+        {"@type": "ListItem", "position": 50, "name": "Sector 24", "description": "Green Line station"},
+        {"@type": "ListItem", "position": 51, "name": "Mahatma Mandir", "description": "Green Line terminal station in Gandhinagar"},
+        {"@type": "ListItem", "position": 52, "name": "PDEU", "description": "Purple Line station"},
+        {"@type": "ListItem", "position": 53, "name": "GIFT City", "description": "Purple Line terminal station at Gujarat International Finance Tec-City"}
+      ]
+    }
+    </script>
+    <style>
+      html, body {
+        background-color: #090D16;
+        margin: 0;
+        padding: 0;
+      }
+      #pre-splash {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background-color: #090D16;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        color: #ffffff;
+        user-select: none;
+        overflow: hidden;
+      }
+      .pre-glow-blue {
+        position: absolute;
+        top: -6rem;
+        left: -6rem;
+        width: 20rem;
+        height: 20rem;
+        border-radius: 9999px;
+        background: rgba(37, 99, 235, 0.2);
+        filter: blur(80px);
+        pointer-events: none;
+      }
+      .pre-glow-purple {
+        position: absolute;
+        bottom: -6rem;
+        right: -6rem;
+        width: 20rem;
+        height: 20rem;
+        border-radius: 9999px;
+        background: rgba(124, 58, 237, 0.18);
+        filter: blur(80px);
+        pointer-events: none;
+      }
+      .pre-badge {
+        position: relative;
+        width: 6.5rem;
+        height: 6.5rem;
+        border-radius: 1.5rem;
+        padding: 2px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        margin-bottom: 1.5rem;
+      }
+      .pre-badge-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 22px;
+        background: rgba(12, 19, 34, 0.95);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.85rem;
+        box-sizing: border-box;
+      }
+      .pre-track {
+        position: relative;
+        width: 13rem;
+        height: 4px;
+        border-radius: 9999px;
+        background: rgba(30, 41, 59, 0.8);
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.05);
+        margin-top: 1.75rem;
+      }
+      .pre-track-beam {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 6rem;
+        background: linear-gradient(90deg, transparent, #60A5FA, transparent);
+        animation: pre-sweep 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+      @keyframes pre-sweep {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(250%); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div id="pre-splash" aria-hidden="true">
+        <div class="pre-glow-blue"></div>
+        <div class="pre-glow-purple"></div>
+        <div class="pre-badge">
+          <div class="pre-badge-inner">
+            <svg viewBox="0 0 100 100" style="width:100%;height:100%;filter:drop-shadow(0 4px 16px rgba(37,99,235,0.45))" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" stroke="url(#pre_hex_border)" stroke-width="3" fill="#0C1322"/>
+              <path d="M20 70 C 35 50, 40 40, 50 50 C 60 60, 65 50, 80 30" stroke="#3B82F6" stroke-width="4" stroke-linecap="round"/>
+              <path d="M22 30 C 36 36, 44 44, 50 50 C 56 56, 68 64, 78 70" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+              <path d="M50 16 L50 84" stroke="#10B981" stroke-width="2.5" stroke-dasharray="3 3" stroke-linecap="round"/>
+              <circle cx="50" cy="50" r="9" fill="#0F172A" stroke="#FFFFFF" stroke-width="2.5"/>
+              <circle cx="50" cy="50" r="4.5" fill="#3B82F6"/>
+              <circle cx="20" cy="70" r="3.5" fill="#3B82F6" stroke="#FFFFFF" stroke-width="1.5"/>
+              <circle cx="80" cy="30" r="3.5" fill="#3B82F6" stroke="#FFFFFF" stroke-width="1.5"/>
+              <circle cx="22" cy="30" r="3.5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="1.5"/>
+              <circle cx="78" cy="70" r="3.5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="1.5"/>
+              <circle cx="50" cy="18" r="3" fill="#10B981" stroke="#FFFFFF" stroke-width="1"/>
+              <circle cx="50" cy="82" r="3" fill="#10B981" stroke="#FFFFFF" stroke-width="1"/>
+              <defs>
+                <linearGradient id="pre_hex_border" x1="12" y1="6" x2="88" y2="94" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#60A5FA"/>
+                  <stop offset="0.5" stop-color="#F59E0B"/>
+                  <stop offset="1" stop-color="#10B981"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+        <div style="font-size:2rem;font-weight:900;letter-spacing:-0.03em;display:flex;align-items:center;line-height:1.2;">
+          Ek<span style="color:#3B82F6;">Safar</span>
+        </div>
+        <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#94A3B8;margin-top:0.35rem;">
+          One City • One Journey • One Fare
+        </div>
+        <div class="pre-track">
+          <div class="pre-track-beam"></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-top:1rem;padding:0.25rem 0.75rem;border-radius:9999px;background:rgba(15,23,42,0.8);border:1px solid #1e293b;font-size:0.7rem;font-weight:500;color:#cbd5e1;">
+          <span style="display:inline-block;width:6px;height:6px;border-radius:9999px;background:#10B981;box-shadow:0 0 8px #10B981;"></span>
+          Connecting Network...
+        </div>
+      </div>
+      <!-- SEO_CRAWLABLE_CONTENT_START -->
+      <div aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">
+        <header>
+          <h1>Ek Safar (એક સફર) — One City, One Journey | Multimodal Transit Platform</h1>
+          <p>The unified Ahmedabad-Gandhinagar multimodal transit platform uniting Gujarat Metro Rail (GMRC), Janmarg BRTS dedicated busways, and AMTS municipal city feeder buses into a single integrated journey planner with unified ticketing (15% rebate) and Hare-Niemeyer exact-paise fare clearinghouse.</p>
+        </header>
+
+        <section id="multimodal-overview">
+          <h2>PS-08 Problem Statement: One City, One Journey</h2>
+          <p>Ek Safar solves fragmented urban mobility across the Ahmedabad and Gandhinagar agglomeration. Instead of purchasing separate tokens for the metro and cash tickets for buses, commuters use a single QR ticket with automatic 15% multimodal transfer rebates.</p>
+          <ul>
+            <li><strong>Gujarat Metro Rail Corporation (GMRC)</strong>: 53 operational stations across East-West (Blue), North-South (Red), Gandhinagar (Green), and GIFT City (Purple) lines.</li>
+            <li><strong>Janmarg BRTS</strong>: 14 dedicated busway corridors along 132ft Ring Road, Ashram Road, and SG Highway arterials.</li>
+            <li><strong>AMTS Municipal Feeders</strong>: First-and-last-mile connectivity linking residential colonies, universities, and industrial sectors to rapid transit spines.</li>
+          </ul>
+        </section>
+      </div>
+      <!-- SEO_CRAWLABLE_CONTENT_END -->
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+    <noscript>
+      <style>
+        body { font-family: system-ui, sans-serif; padding: 2rem; text-align: center; background: #0f172a; color: white; }
+        #root > div { position: static !important; width: auto !important; height: auto !important; padding: 2rem !important; margin: 0 auto !important; overflow: visible !important; clip: auto !important; white-space: normal !important; max-width: 800px; }
+        #root > div h1 { font-size: 1.5rem; margin-bottom: 1rem; }
+        #root > div h2 { font-size: 1.2rem; color: #60a5fa; margin-top: 1.5rem; }
+        #root > div h3 { font-size: 1rem; color: #94a3b8; margin-top: 1rem; }
+        #root > div p { margin: 0.5rem 0; line-height: 1.6; }
+      </style>
+    </noscript>
+  </body>
+</html>
